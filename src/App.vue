@@ -1,31 +1,48 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="main">
+    <header>
+      <router-link to="/"> 首页 </router-link>
+      <router-link to="/table"> 表格 </router-link>
+    </header>
+    <main>
+      <n-layout has-sider>
+        <n-layout-sider bordered content-style="padding: 24px;"
+          >海淀桥</n-layout-sider
+        >
+        <n-layout>
+          <n-layout-header bordered>颐和园路</n-layout-header>
+          <n-layout-content content-style="padding: 24px;">
+              <router-view></router-view>
+          </n-layout-content>
+        </n-layout>
+      </n-layout>
+    </main>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+  .main {
+    height: 100vh;
+    width: 100vw;
+  }
+  header {
+    background-color: #fff;
+    height: 50px;
+  }
+  main {
+    height: calc(100vh - 50px);
+  }
+  main > .n-layout--static-positioned {
+    height: 100%;
+  }
+  .n-layout-sider{
+    padding: 14px;
+    background-color: #ccc;
+  }
+  .n-layout-sider {
+    width: 100px !important;
+  }
+  .n-layout-content {
+   height: (100% - 50px); 
+  }
+  </style>
