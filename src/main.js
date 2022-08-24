@@ -1,6 +1,7 @@
 
 import { createApp } from 'vue';
 import App from './App.vue';
+import ShopCart from './components/example/shopCart/ShopCart.vue'
 
 // const app = createApp({
 //   data() {
@@ -18,7 +19,7 @@ import App from './App.vue';
 //   }
 // })
 
-const app = createApp(App);
+const app = createApp(ShopCart);
 
 app.mount('#app')
 
