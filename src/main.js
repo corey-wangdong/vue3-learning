@@ -19,7 +19,7 @@ import ShopCart from './components/example/shopCart/ShopCart.vue'
 //   }
 // })
 
-const app = createApp(ShopCart);
+const app = createApp(App);
 
 app.mount('#app')
 
