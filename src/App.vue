@@ -1,6 +1,9 @@
 <template>
-  <component-a></component-a>
-  <component-b></component-b>
+  <!-- <component-a title="hahaha a" content="内容"></component-a>
+  <component-b :title="title" :content="content"></component-b> -->
+  <component-a :title="info.title" :content="info.content"></component-a>
+  <component-b v-bind="info" :clickMe="clickMe"></component-b>
+  <component-b v-bind="info" @clickMe="clickMe"></component-b>
   <div>{{message}}</div>
 </template>
 
@@ -15,7 +18,18 @@
       },
       data() {
         return {
-          message: "Hello World"
+          message: "Hello World",
+          title:'hahaha bbb',
+          content:'内容 B',
+          info:{
+            title:'title 123',
+            content:'content 456'
+          }
+        }
+      },
+      methods:{
+        clickMe(value) {
+          console.log('click me--',value);
         }
       }
   };
