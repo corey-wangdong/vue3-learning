@@ -3,24 +3,11 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import ShopCart from './components/example/shopCart/ShopCart.vue'
 
-// const app = createApp({
-//   data() {
-//     return {
-//       counter: 0
-//     }
-//   },
-//   methods:{
-//     increment() {
-//       this.counter++
-//     },
-//     decrement() {
-//       this.counter--
-//     }
-//   }
-// })
-
 const app = createApp(App);
-
+// app.component("my-cpn", {
+//   template: "#my-cpn"
+// })
+console.log('app---', app);
 app.mount('#app')
 
 
