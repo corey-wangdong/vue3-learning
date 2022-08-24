@@ -1,48 +1,51 @@
 <template>
-  <div class="main">
-    <header>
-      <router-link to="/"> 首页 </router-link>
-      <router-link to="/table"> 表格 </router-link>
-    </header>
-    <main>
-      <n-layout has-sider>
-        <n-layout-sider bordered content-style="padding: 24px;"
-          >海淀桥</n-layout-sider
-        >
-        <n-layout>
-          <n-layout-header bordered>颐和园路</n-layout-header>
-          <n-layout-content content-style="padding: 24px;">
-              <router-view></router-view>
-          </n-layout-content>
-        </n-layout>
-      </n-layout>
-    </main>
+  <div>
+    <h2 :class="{'className':counter > 2}">{{counter}}</h2>
+    <button v-if="counter < 4" class="btn" v-on:click='increment'>+1</button>
+    <button :style="{color:'red'}" @click='decrement'>-1</button>
+    <div v-show="counter>2">test</div>
+
+    <ul>
+      <li v-for="(item, index) in movies">{{item}} --- {{index}}</li>
+    </ul>
+
+    <ul>
+      <li v-for="(value,key,index) in info">{{value}}--{{key}}--{{index}}</li>
+    </ul>
   </div>
 </template>
 
+<script>
+  export default {
+    data() {
+      return {
+        counter: 0,
+        movies:['电影1','电影2'],
+        info:{
+          name:'corey',
+          age:'18',
+          sex:'男'
+        }
+      }
+    },
+    methods: {
+      increment(){
+        console.log(this);
+        this.counter++;
+      },
+      decrement() {
+        this.counter--;
+      },
+      className:'test'
+    },
+  }
+</script>
+
 <style scoped>
-  .main {
-    height: 100vh;
-    width: 100vw;
+  .btn {
+    background-color: pink;
   }
-  header {
-    background-color: #fff;
-    height: 50px;
+  .className {
+    color: red;
   }
-  main {
-    height: calc(100vh - 50px);
-  }
-  main > .n-layout--static-positioned {
-    height: 100%;
-  }
-  .n-layout-sider{
-    padding: 14px;
-    background-color: #ccc;
-  }
-  .n-layout-sider {
-    width: 100px !important;
-  }
-  .n-layout-content {
-   height: (100% - 50px); 
-  }
-  </style>
+</style>
