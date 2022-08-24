@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h2 :class="{'className':counter > 2}">{{counter}}</h2>
-    <button v-if="counter < 4" class="btn" v-on:click='increment'>+1</button>
-    <button :style="{color:'red'}" @click='decrement'>-1</button>
-    <div v-show="counter>2">test</div>
+    <h2>{{ getFullName() }}</h2>
+    <h2>{{ getScore() }}</h2>
+    <h2>{{ getScore() }}</h2>
+    <h2>{{ getReverseMessage() }}</h2>
 
-    <ul>
-      <li v-for="(item, index) in movies">{{item}} --- {{index}}</li>
-    </ul>
+    <!-- 计算属性 -->
+    <h2>{{ fullName }}</h2>
+    <h2>{{ score }}</h2>
+    <h2>{{ score }}</h2>
+    <h2>{{ reverseMessage }}</h2>
 
-    <ul>
-      <li v-for="(value,key,index) in info">{{value}}--{{key}}--{{index}}</li>
-    </ul>
+    <button @click="setNewName">设置新名字</button>
   </div>
 </template>
 
@@ -19,25 +19,49 @@
   export default {
     data() {
       return {
-        counter: 0,
-        movies:['电影1','电影2'],
-        info:{
-          name:'corey',
-          age:'18',
-          sex:'男'
-        }
+        firstName:'xu',
+        lastName:'corey',
+        score:99,
+        message:'hello world'
       }
     },
     methods: {
-      increment(){
-        console.log(this);
-        this.counter++;
+      setNewName() {
+        this.fullName = 'corey code'
       },
-      decrement() {
-        this.counter--;
+      getFullName() {
+        return `${this.firstName} ${this.lastName}`
       },
-      className:'test'
+      getScore() {
+        console.log("调用了计算属性result的getter");
+        return this.score >= 60 ? '及格' : '不及格'
+      },
+      getReverseMessage() {
+        return this.message.split(' ').reverse().join(' ')
+      }
     },
+    computed:{
+      // fullName() {
+      //   return `${this.firstName} ${this.lastName}`
+      // },
+      fullName: {
+        get() {
+          return `${this.firstName} ${this.lastName}`
+        },
+        set(value) {
+          const names = value.split(" ");
+          this.firstName = names[0];
+          this.lastName = names[1];
+        }
+      },
+      score() {
+        console.log("调用了computed方法");
+        return this.score >= 60 ? '及格' : '不及格'
+      },
+      reverseMessage() {
+        return this.message.split(' ').reverse().join(' ')
+      }
+    }
   }
 </script>
 
