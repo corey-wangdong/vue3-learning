@@ -1,5 +1,5 @@
 <template>
   <div>
-    我的页面
+    lottery
   </div>
 </template>
