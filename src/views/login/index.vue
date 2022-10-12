@@ -14,21 +14,6 @@
           placeholder="Please input"
         />
 
-  <!-- <el-alert
-    v-if="loginData.showLoginAlert === 'success'"
-    title="success alert"
-    type='success'
-    center
-    show-icon
-  /> -->
-  <el-alert
-    v-show="loginData.showLoginAlert"
-    title="error alert"
-    type='error'
-    center
-    show-icon
-  />
-
   <button @click="handelLogin" >点击登录</button>
 </template>
 
@@ -43,8 +28,7 @@ let loginData = reactive({
   loginInfo:{
     username: "",
     password: "",
-  },
-  showLoginAlert:""
+  }
 })
 
 const {loginInfo} = loginData;
@@ -53,7 +37,6 @@ const handelLogin = () => {
   const {username, password} = loginInfo;
 
   if(username === 'admin' && password==='123456') {
-    loginData.showLoginAlert = 'success';
     ElMessage({
       message: '登录成功',
       grouping: true,

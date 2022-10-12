@@ -21,16 +21,24 @@
                 <span>抽奖管理模块</span>
               </template>
               <el-menu-item index="1-1">
-                <router-link to="/dashboard/about">退款管理</router-link>
-              </el-menu-item>
-              <el-menu-item index="1-2">
-                <router-link to="/dashboard/login2">退货管理</router-link>
+                <router-link to="/dashboard/lottery/list">抽奖活动列表</router-link>
               </el-menu-item>
             </el-sub-menu>
-            <el-menu-item index="2">
-              <el-icon><icon-menu /></el-icon>
-              <span>商店管理模块</span>
-            </el-menu-item>
+            <el-sub-menu index="2">
+              <template #title>
+                <el-icon><location /></el-icon>
+                <span>商店管理模块</span>
+              </template>
+              <el-menu-item index="1-1">
+                <router-link to="/dashboard/shop/order">订单管理</router-link>
+              </el-menu-item>
+              <el-menu-item index="1-1">
+                <router-link to="/dashboard/shop/refund">退款管理</router-link>
+              </el-menu-item>
+              <el-menu-item index="1-2">
+                <router-link to="/dashboard/shop/refund-goods">退货管理</router-link>
+              </el-menu-item>
+            </el-sub-menu>
           </el-menu>
         </el-aside>
         <el-container>
@@ -39,9 +47,9 @@
               <router-view></router-view>
             </div>
           </el-main>
-          <el-footer>
+          <!-- <el-footer>
             <div class="footer">Footer</div>
-          </el-footer>
+          </el-footer> -->
         </el-container>
       </el-container>
     </el-container>
