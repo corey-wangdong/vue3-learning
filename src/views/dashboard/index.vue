@@ -2,7 +2,10 @@
   <div class="common-layout">
     <el-container>
       <el-header>
-        <div class="herder">header</div>
+        <div class="herder">
+          <div>后台管理系统</div>
+          <div @click="handleExit">退出</div>
+        </div>
       </el-header>
       <el-container>
         <el-aside width="200px">
@@ -56,6 +59,26 @@
   </div>
 </template>
 
+
+<script lang="ts" setup>
+import { useRouter } from 'vue-router';
+import { useUserStore } from '../../../src/stores/modules/user';
+import { useOrderStore } from '../../stores/modules/order';
+
+const router = useRouter();
+const {token, setToken} = useUserStore();
+
+console.log('token----',token);
+console.log('router----',router);
+if(!token) router && router.push('/')
+
+const handleExit = () => {
+  console.log('退出登录----');
+  setToken('')
+}
+
+</script>
+
 <style lang="scss" scoped>
 
   .common-layout {
@@ -77,6 +100,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   .aside {
@@ -89,12 +113,10 @@
   .main {
     width: 100%;
     height: 100%;
-    /* background-color: red; */
   }
 
   .footer {
     width: 100%;
     height: 100%;
-    /* background-color: yellow; */
   }
 </style>

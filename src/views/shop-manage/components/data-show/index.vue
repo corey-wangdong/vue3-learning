@@ -13,12 +13,7 @@
         :label="item.label"
         :width="item.width"
         class-name="first-cell"
-      >
-      <template #default="scope" v-if="index===props.columnData.length-1">
-        <router-link to="/dashboard/shop/order-detail">{{ scope.row.active }}</router-link>
-        <!-- {{ scope.row.active }} -->
-      </template>
-      </el-table-column>
+      />
     </el-table>
   </div>
 </template>

@@ -58,7 +58,7 @@
   import Input from '../components/input/index.vue'
 
   import { ref } from 'vue'
-  
+
 const centerDialogVisible = ref(false)
 const editPriceVisible = ref(false)
 
@@ -107,7 +107,7 @@ const refund_table_data = [
   }
 ]
 
-  const sales_column = [
+const sales_column = [
   {
     type: 'type',
     label:'促销类型'

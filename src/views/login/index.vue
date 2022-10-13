@@ -22,7 +22,10 @@
 import { ElMessage } from "element-plus";
 import { reactive } from "vue";
 import { useRouter } from "vue-router"
+import { useUserStore } from "../../stores/modules/user";
 const router = useRouter()
+const {token, setToken} = useUserStore();
+if(token) router.push('/dashboard');
 
 let loginData = reactive({
   loginInfo:{
@@ -36,12 +39,14 @@ const {loginInfo} = loginData;
 const handelLogin = () => {
   const {username, password} = loginInfo;
 
-  if(username === 'admin' && password==='123456') {
+  // if(username === 'admin' && password==='123456') {
+  if(username && password) {
     ElMessage({
       message: '登录成功',
       grouping: true,
       type: 'success',
     })
+    setToken('123456')
     router.push('/dashboard');
   }else {
     ElMessage({
