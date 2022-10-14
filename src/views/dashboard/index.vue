@@ -50,9 +50,6 @@
               <router-view></router-view>
             </div>
           </el-main>
-          <!-- <el-footer>
-            <div class="footer">Footer</div>
-          </el-footer> -->
         </el-container>
       </el-container>
     </el-container>
