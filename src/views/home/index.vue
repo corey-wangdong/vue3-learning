@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h2>about</h2>
+  <div class="home">
+    <h2>home</h2>
   </div>
 </template>
 
@@ -9,5 +9,5 @@
 </script>
 
 <style lang="scss" scoped>
-.about {}
+.home {}
 </style>
